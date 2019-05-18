@@ -1,0 +1,19 @@
+{
+    "name": "clement/my-website",
+    "require": {
+        "twig/twig": "^1.41",
+        "altorouter/altorouter": "^1.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\Controller\\": "../controller",
+            "App\\Model\\": "../model"
+        }
+    },
+    "authors": [
+        {
+            "name": "Clement-76",
+            "email": "clement.patigny@gmail.com"
+        }
+    ]
+}
