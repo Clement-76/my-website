@@ -16,7 +16,7 @@ abstract class AppController {
             'cache' => false // ROOT . '/tmp'
         ]);
 
-        $twig->addGlobal('BASEURL', BASEURL . '/');
+        $twig->addGlobal('baseUrl', BASEURL . '/');
 
         $this->twig = $twig;
     }

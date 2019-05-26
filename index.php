@@ -1,5 +1,4 @@
 <?php
-
 use App\Controller\HomeController;
 
 require 'config.php';

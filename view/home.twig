@@ -1,11 +1,93 @@
 {% extends "template.twig" %}
 
-{% block links %}{% endblock %}
+{% block links %}
+    <link rel="stylesheet" href="{{ baseUrl }}assets/css/fonts.css">
+    <link rel="stylesheet" href="{{ baseUrl }}assets/css/icons.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600|Varela+Round&display=swap" rel="stylesheet">
+{% endblock %}
 
-{% block meta %}{% endblock %}
+{% block meta %}
+    {#<meta property="og:image" content="">#}
+    <meta property="og:title" content="Clément Patigny">
+    <meta property="og:url" content="{{ baseUrl }}">
+    {#<meta property="og:type" content="profile">#}
+    {#<meta property="og:description" content="">#}
+{% endblock %}
 
 {% block content %}
-    <p>Home page</p>
+    <header>
+        <nav>
+            <ul>
+                <li>HOME</li>
+                <li>ABOUT ME</li>
+                <li>PROJETS</li>
+                <li>CONTACT</li>
+                <li>CV</li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <div class="center">
+            <h1 class="name">CLÉMENT PATIGNY</h1>
+            <h2 class="status">Développeur web junior</h2>
+        </div>
+
+        <div class="bottom"><i class="icon-down-chevron"></i></div>
+    </section>
+
+    <section id="about-me">
+        <div class="left">
+            <div class="center">
+                <img src="{{ baseUrl }}assets/img/profile-picture.png" alt="photo de profil">
+
+                <blockquote cite="https://quotefancy.com/quote/35383/Michael-Jordan-If-you-quit-once-it-becomes-a-habit-Never-quit">
+                    <p>“If you quit once, it becomes a habit. NEVER QUIT !”</p>
+                    <cite>- Michael Jordan</cite>
+                </blockquote>
+            </div>
+        </div>
+
+        <div class="right">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <h2 class="semi-underline">MES PROJETS</h2>
+        <div class="project"></div>
+    </section>
+
+    <section id="contact">
+        <div class="left">
+            <p class="">UNE QUESTION ?</p>
+            <i class="icon-envelope"></i>
+        </div>
+
+        <div class="right">
+            <form action="" id="contact-form">
+                <div><input type="text" name="name" placeholder="Votre nom"></div>
+                <div><input type="email" name="email" placeholder="Votre email"></div>
+                <div><input type="text" name="object" placeholder="Sujet du message"></div>
+                <textarea name="message" cols="30" rows="10" placeholder="Sujet du message"></textarea>
+                <div><input type="submit" value="Envoyer le message"></div>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="center">
+            <div class="left">
+                <a href="#">mentions légales</a>
+                <a href="#">admin</a>
+            </div>
+
+            <div class="right">
+                <i class="icon-github"></i>
+                <i class="icon-linkedin"></i>
+            </div>
+        </div>
+    </footer>
 {% endblock %}
 
 {% block scripts %}{% endblock %}

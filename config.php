@@ -20,4 +20,3 @@ define('BASEURL', 'http://localhost/projects/my-website');
 
 // The timezone of the website
 define('TIMEZONE', 'Europe/Paris');
-$a = 'test';
