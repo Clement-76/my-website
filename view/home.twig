@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="{{ baseUrl }}assets/css/fonts.css">
     <link rel="stylesheet" href="{{ baseUrl }}assets/css/icons.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600|Varela+Round&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ baseUrl }}assets/css/home.css">
 {% endblock %}
 
 {% block meta %}
@@ -15,25 +16,27 @@
 {% endblock %}
 
 {% block content %}
-    <header>
+    <header id="menu">
         <nav>
             <ul>
-                <li>HOME</li>
-                <li>ABOUT ME</li>
-                <li>PROJETS</li>
-                <li>CONTACT</li>
-                <li>CV</li>
+                <li class="menu-item" data-target-id="home" id="home-anchor"><a href="#">HOME</a></li>
+                <li class="menu-item" data-target-id="about-me" id="about-me-anchor"><a href="#">ABOUT ME</a></li>
+                <li class="menu-item" data-target-id="portfolio" id="portfolio-anchor"><a href="#">PROJETS</a></li>
+                <li class="menu-item" data-target-id="contact" id="contact-anchor"><a href="#">CONTACT</a></li>
+                <li><a href="{{ baseUrl }}assets/files/cv.pdf" target="_blank" title="Télécharger le CV">CV</a></li>
             </ul>
         </nav>
     </header>
 
     <section id="home">
+        <div id="layer"></div>
+
         <div class="center">
             <h1 class="name">CLÉMENT PATIGNY</h1>
             <h2 class="status">Développeur web junior</h2>
         </div>
 
-        <div class="bottom"><i class="icon-down-chevron"></i></div>
+        <div class="bottom"><i id="go-down" class="icon-down-chevron" title="Descendre"></i></div>
     </section>
 
     <section id="about-me">
@@ -42,8 +45,7 @@
                 <img src="{{ baseUrl }}assets/img/profile-picture.png" alt="photo de profil">
 
                 <blockquote cite="https://quotefancy.com/quote/35383/Michael-Jordan-If-you-quit-once-it-becomes-a-habit-Never-quit">
-                    <p>“If you quit once, it becomes a habit. NEVER QUIT !”</p>
-                    <cite>- Michael Jordan</cite>
+                    <p>“If you quit once, it becomes a habit. NEVER QUIT !”<cite>- Michael Jordan</cite></p>
                 </blockquote>
             </div>
         </div>
@@ -54,22 +56,29 @@
     </section>
 
     <section id="portfolio">
-        <h2 class="semi-underline">MES PROJETS</h2>
-        <div class="project"></div>
+        <div class="center"><h2 class="section-title">MES PROJETS</h2></div>
+        <div id="projects">
+            <div class="project-container"><div class="project" style="background-image: url('{{ baseUrl }}assets/img/projects/webagency.png');"></div></div>
+            <div class="project-container"><div class="project" style="background-image: url('{{ baseUrl }}assets/img/projects/strasbourg.png');"></div></div>
+            <div class="project-container"><div class="project" style="background-image: url('{{ baseUrl }}assets/img/projects/veloc.png');"></div></div>
+            <div class="project-container"><div class="project" style="background-image: url('{{ baseUrl }}assets/img/projects/blog-jean-forteroche.png');"></div></div>
+            <div class="project-container"><div class="project" style="background-image: url('{{ baseUrl }}assets/img/projects/minirpg.png');"></div></div>
+            <div class="project-container"><div class="project" style="background-image: url('{{ baseUrl }}assets/img/projects/my-website.png');"></div></div>
+        </div>
     </section>
 
     <section id="contact">
         <div class="left">
-            <p class="">UNE QUESTION ?</p>
-            <i class="icon-envelope"></i>
+            <p>UNE QUESTION ?<br><span>Écrivez moi !</span></p>
+            <div class="envelope"><i class="icon-envelope"></i></div>
         </div>
 
         <div class="right">
-            <form action="" id="contact-form">
+            <form id="contact-form">
                 <div><input type="text" name="name" placeholder="Votre nom"></div>
                 <div><input type="email" name="email" placeholder="Votre email"></div>
                 <div><input type="text" name="object" placeholder="Sujet du message"></div>
-                <textarea name="message" cols="30" rows="10" placeholder="Sujet du message"></textarea>
+                <textarea name="message" cols="30" rows="7" placeholder="Sujet du message"></textarea>
                 <div><input type="submit" value="Envoyer le message"></div>
             </form>
         </div>
@@ -83,11 +92,13 @@
             </div>
 
             <div class="right">
-                <i class="icon-github"></i>
-                <i class="icon-linkedin"></i>
+                <a href="https://github.com/Clement-76" target="_blank"><i class="icon-github"></i></a>
+                <a href="https://www.linkedin.com/in/clementpatigny/" target="_blank"><i class="icon-linkedin"></i></a>
             </div>
         </div>
     </footer>
 {% endblock %}
 
-{% block scripts %}{% endblock %}
+{% block scripts %}
+    <script src="{{ baseUrl }}assets/js/main.js" type="module"></script>
+{% endblock %}
