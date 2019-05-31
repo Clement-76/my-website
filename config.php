@@ -1,7 +1,7 @@
 <?php
 
 // The name of the database
-define('DB_NAME', 'my-website');
+define('DB_NAME', 'my_website');
 
 // MySQL database username
 define('DB_USER', 'root');
@@ -20,3 +20,6 @@ define('BASEURL', 'http://localhost/projects/my-website');
 
 // The timezone of the website
 define('TIMEZONE', 'Europe/Paris');
+
+// the base path of the website
+define('BASEPATH', '/projects/my-website');

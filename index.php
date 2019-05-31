@@ -1,5 +1,7 @@
 <?php
+
 use App\Controller\HomeController;
+use App\Controller\ProjectsController;
 
 require 'config.php';
 require 'composer/vendor/autoload.php';
@@ -9,12 +11,16 @@ date_default_timezone_set(TIMEZONE);
 session_start();
 
 $router = new AltoRouter();
-
-$router->setBasePath(rtrim($_SERVER['REQUEST_URI'], '/'));
+$router->setBasePath(BASEPATH);
 
 $router->map('GET', '/', function() {
     $homeController = new HomeController();
     $homeController->displayHome();
+});
+
+$router->map('GET', '/projects', function() {
+    $projectController = new ProjectsController();
+    $projectController->getJSONProjects();
 });
 
 $match = $router->match();

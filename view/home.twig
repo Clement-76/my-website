@@ -19,10 +19,10 @@
     <header id="menu">
         <nav>
             <ul>
-                <li class="menu-item" data-target-id="home" id="home-anchor"><a href="#">HOME</a></li>
-                <li class="menu-item" data-target-id="about-me" id="about-me-anchor"><a href="#">ABOUT ME</a></li>
-                <li class="menu-item" data-target-id="portfolio" id="portfolio-anchor"><a href="#">PROJETS</a></li>
-                <li class="menu-item" data-target-id="contact" id="contact-anchor"><a href="#">CONTACT</a></li>
+                <li class="menu-item" data-target-id="home" id="home-anchor"><a href="#" accesskey="h">HOME</a></li>
+                <li class="menu-item" data-target-id="about-me" id="about-me-anchor"><a href="#" accesskey="a">ABOUT ME</a></li>
+                <li class="menu-item" data-target-id="portfolio" id="portfolio-anchor"><a href="#" accesskey="p">PROJETS</a></li>
+                <li class="menu-item" data-target-id="contact" id="contact-anchor"><a href="#" accesskey="c">CONTACT</a></li>
                 <li><a href="{{ baseUrl }}assets/files/cv.pdf" target="_blank" title="Télécharger le CV">CV</a></li>
             </ul>
         </nav>
@@ -33,7 +33,7 @@
 
         <div class="center">
             <h1 class="name">CLÉMENT PATIGNY</h1>
-            <h2 class="status">Développeur web junior</h2>
+            <h2 class="status">Développeur web</h2>
         </div>
 
         <div class="bottom"><i id="go-down" class="icon-down-chevron" title="Descendre"></i></div>
@@ -51,20 +51,13 @@
         </div>
 
         <div class="right">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p>Passionné par le développement web, je suis très investi dans mes projets. Je fais preuve d'une grande autonomie et suis déterminé à apprendre toujours plus.</p>
         </div>
     </section>
 
     <section id="portfolio">
         <div class="center"><h2 class="section-title">MES PROJETS</h2></div>
-        <div id="projects">
-            <div class="project-container"><div class="project" style="background-image: url('{{ baseUrl }}assets/img/projects/webagency.png');"></div></div>
-            <div class="project-container"><div class="project" style="background-image: url('{{ baseUrl }}assets/img/projects/strasbourg.png');"></div></div>
-            <div class="project-container"><div class="project" style="background-image: url('{{ baseUrl }}assets/img/projects/veloc.png');"></div></div>
-            <div class="project-container"><div class="project" style="background-image: url('{{ baseUrl }}assets/img/projects/blog-jean-forteroche.png');"></div></div>
-            <div class="project-container"><div class="project" style="background-image: url('{{ baseUrl }}assets/img/projects/minirpg.png');"></div></div>
-            <div class="project-container"><div class="project" style="background-image: url('{{ baseUrl }}assets/img/projects/my-website.png');"></div></div>
-        </div>
+        <div id="projects"></div>
     </section>
 
     <section id="contact">
@@ -75,9 +68,9 @@
 
         <div class="right">
             <form id="contact-form">
-                <div><input type="text" name="name" placeholder="Votre nom"></div>
-                <div><input type="email" name="email" placeholder="Votre email"></div>
-                <div><input type="text" name="object" placeholder="Sujet du message"></div>
+                <label><input type="text" name="name" placeholder="Votre nom"></label>
+                <label><input type="email" name="email" placeholder="Votre email"></label>
+                <label><input type="text" name="object" placeholder="Sujet du message"></label>
                 <textarea name="message" cols="30" rows="7" placeholder="Sujet du message"></textarea>
                 <div><input type="submit" value="Envoyer le message"></div>
             </form>
@@ -87,13 +80,13 @@
     <footer>
         <div class="center">
             <div class="left">
-                <a href="#">mentions légales</a>
-                <a href="#">admin</a>
+                <a href="{{ baseUrl }}legal-notice">mentions légales</a>
+                <a href="{{ baseUrl }}admin">admin</a>
             </div>
 
             <div class="right">
-                <a href="https://github.com/Clement-76" target="_blank"><i class="icon-github"></i></a>
-                <a href="https://www.linkedin.com/in/clementpatigny/" target="_blank"><i class="icon-linkedin"></i></a>
+                <a href="https://github.com/Clement-76" target="_blank" title="Github" accesskey="g"><i class="icon-github"></i></a>
+                <a href="https://www.linkedin.com/in/clementpatigny/" target="_blank" title="Linkedin" accesskey="l"><i class="icon-linkedin"></i></a>
             </div>
         </div>
     </footer>
