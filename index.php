@@ -23,6 +23,21 @@ $router->map('GET', '/projects', function() {
     $projectController->getJSONProjects();
 });
 
+$router->map('GET', '/admin', function() {
+    $projectController = new ProjectsController();
+    $projectController->getJSONProjects();
+});
+
+$router->map('GET', '/login', function() {
+    $projectController = new ProjectsController();
+    $projectController->getJSONProjects();
+});
+
+$router->map('GET', '/contact', function() {
+    $projectController = new ProjectsController();
+    $projectController->getJSONProjects();
+});
+
 $match = $router->match();
 
 if(is_array($match) && is_callable($match['target'])) {

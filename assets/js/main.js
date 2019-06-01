@@ -1,4 +1,4 @@
-import config from './config.js';
+import config from './config';
 import changeMenuOnScroll from './changeMenuOnScroll';
 import scrollToEltOnClick from './scrollToEltOnClick';
 import ProjectModal from './ProjectModal';
@@ -16,6 +16,6 @@ $('.menu-item').each((i, elt) => {
 $.get(config.baseUrl + '/projects', (data) => {
     data.forEach(projectData => {
         let project = new Project('projects', projectData);
-        new ProjectModal(project);
+        new ProjectModal('portfolio', project);
     });
 }, 'JSON');

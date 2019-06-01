@@ -213,6 +213,105 @@ html body #portfolio .center .section-title:after {
   width: 70%;
   background-color: #ef3e36;
 }
+html body #portfolio .modal-overlay {
+  position: fixed;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 9999;
+  overflow-y: auto;
+  display: flex;
+  padding: 20px;
+  visibility: hidden;
+}
+html body #portfolio .modal-overlay .modal-project {
+  width: 60%;
+  margin: auto;
+  transition-duration: 0.3s;
+  transform: scale(0);
+}
+html body #portfolio .modal-overlay .modal-project .top {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+html body #portfolio .modal-overlay .modal-project .top .project-image {
+  border-radius: 6px 6px 0 0;
+  width: 100%;
+  user-select: none;
+  display: block;
+}
+html body #portfolio .modal-overlay .modal-project .top .close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.75);
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+html body #portfolio .modal-overlay .modal-project .top .close .icon-close {
+  color: #fff;
+  font-size: 1.35em;
+}
+html body #portfolio .modal-overlay .modal-project .info {
+  background-color: #eee;
+  border-radius: 0 0 6px 6px;
+  padding: 25px 40px 30px;
+}
+html body #portfolio .modal-overlay .modal-project .info h3 {
+  margin-top: 0;
+  margin-bottom: 25px;
+  text-align: center;
+  font-size: 2.7em;
+  font-family: "Montserrat", sans-serif;
+}
+html body #portfolio .modal-overlay .modal-project .info .description {
+  font-size: 1.15em;
+}
+html body #portfolio .modal-overlay .modal-project .info .links {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding-top: 25px;
+}
+html body #portfolio .modal-overlay .modal-project .info .links a {
+  color: #222;
+  text-decoration: none;
+}
+html body #portfolio .modal-overlay .modal-project .info .links .open-site {
+  user-select: none;
+  outline: none;
+  cursor: pointer;
+  transition-duration: 0.2s;
+  transition-property: transform;
+  background-color: #eee;
+  padding: 12px 25px;
+  border-radius: 20px;
+  border: solid #222;
+  border-width: 2px 2px 4px;
+  font-size: 1.15em;
+}
+html body #portfolio .modal-overlay .modal-project .info .links .open-site:active {
+  border-width: 2px;
+  margin-top: 2px;
+}
+html body #portfolio .modal-overlay .modal-project .info .links .github {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+html body #portfolio .modal-overlay .modal-project .info .links .github .icon-github {
+  cursor: pointer;
+  font-size: 3.1em;
+}
 html body #portfolio #projects {
   display: flex;
   flex-wrap: wrap;

@@ -250,6 +250,121 @@ html {
                 }
             }
 
+            .modal-overlay {
+                position: fixed;
+                bottom: 0;
+                top: 0;
+                left: 0;
+                right: 0;
+                background-color: rgba(0,0,0,.6);
+                z-index: 9999;
+                overflow-y: auto;
+                display: flex;
+                padding: 20px;
+                visibility: hidden;
+
+                .modal-project {
+                    width: 60%;
+                    margin: auto;
+                    transition-duration: .3s;
+                    transform: scale(0);
+
+                    .top {
+                        position: relative;
+                        overflow: hidden;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        .project-image {
+                            border-radius: 6px 6px 0 0;
+                            width: 100%;
+                            user-select: none;
+                            //max-height: 60vh;
+                            display: block;
+                        }
+
+                        .close {
+                            position: absolute;
+                            right: 10px;
+                            top: 10px;
+                            border-radius: 50%;
+                            background-color: rgba(0, 0, 0, 0.75);
+                            padding: 10px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            cursor: pointer;
+
+                            .icon-close {
+                                color: $white;
+                                font-size: 1.35em;
+                            }
+                        }
+                    }
+
+                    .info {
+                        background-color: $light-grey;
+                        border-radius: 0 0 6px 6px;
+                        padding: 25px 40px 30px;
+
+                        h3 {
+                            margin-top: 0;
+                            margin-bottom: 25px;
+                            text-align: center;
+                            font-size: 2.7em;
+                            font-family: 'Montserrat', sans-serif;
+                        }
+
+                        .description {
+                            font-size: 1.15em;
+                        }
+
+                        .links {
+                            position: relative;
+                            display: flex;
+                            justify-content: center;
+                            padding-top: 25px;
+
+                            a {
+                                color: $raisin-black;
+                                text-decoration: none;
+                            }
+
+                            .open-site {
+                                user-select: none;
+                                outline: none;
+                                cursor: pointer;
+                                transition-duration: 0.2s;
+                                transition-property: transform;
+                                background-color: $light-grey;
+                                padding: 12px 25px;
+                                border-radius: 20px;
+                                border: solid $raisin-black;
+                                border-width: 2px 2px 4px;
+                                font-size: 1.15em;
+
+                                &:active {
+                                    border-width: 2px;
+                                    margin-top: 2px;
+                                }
+                            }
+
+                            .github {
+                                position: absolute;
+                                right: 0;
+                                bottom: 0;
+
+                                .icon-github {
+                                    cursor: pointer;
+                                    font-size: 3.1em;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
             #projects {
                 display: flex;
                 flex-wrap: wrap;
