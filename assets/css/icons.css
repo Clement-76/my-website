@@ -13,11 +13,14 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-close:before {
-    content: "\e902";
+.icon-left-arrow:before {
+    content: "\e907";
 }
 .icon-down-chevron:before {
     content: "\e903";
+}
+.icon-close:before {
+    content: "\e902";
 }
 .icon-github:before {
     content: "\e904";

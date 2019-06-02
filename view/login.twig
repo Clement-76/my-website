@@ -1,0 +1,40 @@
+{% extends "template.twig" %}
+
+{% set pageTitle = 'Connexion' %}
+
+{% block links %}
+    <link rel="stylesheet" href="{{ baseUrl }}assets/css/fonts.css">
+    <link rel="stylesheet" href="{{ baseUrl }}assets/css/icons.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600|Varela+Round&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ baseUrl }}assets/css/login.css">
+{% endblock %}
+
+{% block meta %}{% endblock %}
+
+{% block content %}
+    <a href="{{ baseUrl }}"><i class="icon-left-arrow"></i></a>
+
+    <form action="" method="post" id="login">
+        <div class="center"><h1>Connexion</h1></div>
+
+        {% if errors %}
+            <p class="error">Identifiant ou mot de passe incorrect</p>
+        {% endif %}
+
+        <div class="form-element">
+            <label for="pseudo">Votre pseudo :</label>
+            <input id="pseudo" name="pseudo" type="text">
+        </div>
+
+        <div class="form-element">
+            <label for="password">Votre mot de passe :</label>
+            <input type="text" id="password" name="password">
+        </div>
+
+        <button>Se connecter</button>
+    </form>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ baseUrl }}assets/js/main.js" type="module"></script>
+{% endblock %}

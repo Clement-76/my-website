@@ -2,6 +2,7 @@
 
 use App\Controller\HomeController;
 use App\Controller\ProjectsController;
+use App\Controller\UsersController;
 
 require 'config.php';
 require 'composer/vendor/autoload.php';
@@ -18,27 +19,30 @@ $router->map('GET', '/', function() {
     $homeController->displayHome();
 });
 
-$router->map('GET', '/projects', function() {
+$router->map('GET', '/projects/', function() {
     $projectController = new ProjectsController();
     $projectController->getJSONProjects();
 });
 
-$router->map('GET', '/admin', function() {
-    $projectController = new ProjectsController();
-    $projectController->getJSONProjects();
+$router->map('GET|POST', '/login/', function() {
+    $userController = new UsersController();
+    $userController->login();
 });
 
-$router->map('GET', '/login', function() {
-    $projectController = new ProjectsController();
-    $projectController->getJSONProjects();
+$router->map('GET', '/logout/', function() {
+    $userController = new UsersController();
+    $userController->logout();
 });
 
-$router->map('GET', '/contact', function() {
-    $projectController = new ProjectsController();
-    $projectController->getJSONProjects();
+$router->map('GET', '/admin/', function() {
+
 });
 
-$match = $router->match();
+$router->map('GET', '/contact/', function() {
+
+});
+
+$match = $router->match(rtrim($_SERVER['REQUEST_URI'], '/') . '/');
 
 if(is_array($match) && is_callable($match['target'])) {
     call_user_func_array($match['target'], $match['params']);
