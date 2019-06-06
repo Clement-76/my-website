@@ -11,6 +11,11 @@ html {
         background: linear-gradient(0deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.75) 100%), url('../img/buildings.jpg') center / cover no-repeat;
         display: flex;
 
+        ::selection {
+            color: $white;
+            background-color: $raisin-black;
+        }
+
         .icon-left-arrow {
             cursor: pointer;
             color: $white;
@@ -106,6 +111,61 @@ html {
                     top: 2px;
                 }
             }
+        }
+    }
+}
+
+@media all and (max-width: 1110px) {
+    html body {
+        #login {
+            width: 33%;
+        }
+    }
+}
+
+@media all and (max-width: 890px) {
+    html body {
+        #login {
+            width: 38%;
+        }
+    }
+}
+
+@media all and (max-width: 730px) {
+    html body {
+        #login {
+            width: 45%;
+        }
+    }
+}
+
+@media all and (max-width: 605px) {
+    html body {
+        #login {
+            padding: 25px 30px;
+            width: 53%;
+        }
+    }
+}
+
+@media all and (max-width: 488px) {
+    html body {
+        #login {
+            width: 68%;
+        }
+    }
+}
+
+@media all and (max-width: 420px) {
+    html body {
+        .icon-left-arrow {
+            top: 10px;
+            left: 10px;
+        }
+
+        #login {
+            padding: 20px;
+            width: 80%;
         }
     }
 }

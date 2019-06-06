@@ -1,18 +1,4 @@
-html {
-  height: 100%;
-}
-html body {
-  font-family: "Varela Round", sans-serif;
-  height: 100%;
-  margin: 0;
-  color: #222;
-  overflow-x: hidden;
-}
-html body *::selection {
-  color: #fff;
-  background-color: #222;
-}
-html body #menu {
+#menu {
   position: fixed;
   z-index: 1;
   top: 0;
@@ -22,19 +8,19 @@ html body #menu {
   justify-content: center;
   padding: 8px 15px;
 }
-html body #menu nav {
+#menu nav {
   width: 60%;
 }
-html body #menu nav ul {
+#menu nav ul {
   display: flex;
   justify-content: space-between;
   padding-left: 0;
   margin: 0;
 }
-html body #menu nav ul li {
+#menu nav ul li {
   list-style: none;
 }
-html body #menu nav ul li a {
+#menu nav ul li a {
   display: block;
   cursor: pointer;
   font-family: "Montserrat", sans-serif;
@@ -44,7 +30,7 @@ html body #menu nav ul li a {
   color: #fff;
   text-decoration: none;
 }
-html body #menu nav ul li a:after {
+#menu nav ul li a:after {
   content: "";
   position: absolute;
   bottom: 12px;
@@ -56,8 +42,107 @@ html body #menu nav ul li a:after {
   width: 65%;
   background-color: #fff;
 }
-html body #menu nav ul li a:hover:after {
+#menu nav ul li a:hover:after {
   transform: scale(1);
+}
+
+#open-menu {
+  display: none;
+  padding: 8px;
+  position: fixed;
+  top: 25px;
+  right: 25px;
+  z-index: 9;
+  cursor: pointer;
+}
+#open-menu div {
+  height: 3px;
+  width: 35px;
+  background-color: #fff;
+}
+#open-menu .top {
+  margin-bottom: 12px;
+}
+
+#mobile-menu {
+  display: none;
+  position: fixed;
+  background-color: #222;
+  box-sizing: border-box;
+  width: 20vw;
+  min-width: 240px;
+  z-index: 10;
+  height: 100%;
+  top: 0;
+  right: 0;
+  transform: translateX(101%);
+  transition-duration: 0.5s;
+  padding: 5px 15px;
+}
+#mobile-menu #close-menu {
+  display: flex;
+  justify-content: flex-end;
+  padding: 15px 0 8px;
+}
+#mobile-menu #close-menu .icon-close {
+  color: #fff;
+  font-size: 1.6em;
+  cursor: pointer;
+}
+#mobile-menu nav {
+  padding: 0 25px;
+}
+#mobile-menu nav ul {
+  padding-left: 0;
+}
+#mobile-menu nav ul li {
+  list-style: none;
+  margin: 8px 0;
+  border-bottom: 1px solid #000;
+}
+#mobile-menu nav ul li a {
+  display: block;
+  padding: 5px 0 10px;
+  font-size: 1.2em;
+  color: #fff;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+}
+
+#menu-overlay {
+  position: fixed;
+  z-index: 2;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  display: none;
+}
+
+@media all and (max-width: 900px) {
+  #menu {
+    display: none;
+  }
+
+  #open-menu, #mobile-menu {
+    display: block;
+  }
+}
+html {
+  height: 100%;
+}
+html body {
+  font-family: "Varela Round", sans-serif;
+  height: 100%;
+  margin: 0;
+  color: #222;
+  overflow-x: hidden;
+}
+html body ::selection {
+  color: #fff;
+  background-color: #222;
 }
 html body #home {
   position: relative;
@@ -69,7 +154,7 @@ html body #home {
   justify-content: center;
   align-items: center;
 }
-html body #home *::selection {
+html body #home ::selection {
   color: #222;
   background-color: #fff;
 }
@@ -150,6 +235,12 @@ html body #home .bottom .icon-down-chevron {
 html body #about-me {
   display: flex;
 }
+html body #about-me .center-title {
+  display: none;
+}
+html body #about-me .center-title .section-title:after {
+  background-color: #e1c294;
+}
 html body #about-me .left,
 html body #about-me .right {
   padding: 50px;
@@ -186,15 +277,11 @@ html body #about-me .right p {
   width: 80%;
   line-height: 1.2;
 }
-html body #portfolio {
-  background-color: #eee;
-  padding: 20px 70px 60px;
-}
-html body #portfolio .center {
+html body .center-title {
   display: flex;
   justify-content: center;
 }
-html body #portfolio .center .section-title {
+html body .center-title .section-title {
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
   font-size: 3em;
@@ -204,7 +291,7 @@ html body #portfolio .center .section-title {
   margin-top: 0;
   margin-bottom: 25px;
 }
-html body #portfolio .center .section-title:after {
+html body .center-title .section-title:after {
   content: "";
   position: absolute;
   bottom: -2px;
@@ -212,6 +299,10 @@ html body #portfolio .center .section-title:after {
   height: 3px;
   width: 70%;
   background-color: #ef3e36;
+}
+html body #portfolio {
+  background-color: #eee;
+  padding: 20px 70px 60px;
 }
 html body #portfolio .modal-overlay {
   position: fixed;
@@ -380,6 +471,9 @@ html body #contact .left,
 html body #contact .right {
   padding: 50px 50px 25px;
 }
+html body #contact .center-title {
+  display: none;
+}
 html body #contact .left {
   flex-basis: 50%;
   background-color: #ef3e36;
@@ -508,8 +602,224 @@ html body footer .center .right a i {
 html body footer .center .right a i:hover {
   color: #ef3e36;
 }
-html body footer .center .right a .icon-linkedin {
+html body footer .center .right a:last-child {
   margin-left: 25px;
+}
+
+@media all and (max-width: 1271px) {
+  html body #portfolio {
+    padding: 20px 30px 50px;
+  }
+  html body #portfolio #projects .project-container .project {
+    width: 40vw;
+    height: 25vw;
+  }
+  html body #about-me .left,
+html body #about-me .right {
+    padding: 25px;
+  }
+}
+@media all and (max-width: 1080px) {
+  html body #portfolio .modal-overlay .modal-project {
+    width: 70%;
+  }
+}
+@media all and (max-width: 983px) {
+  html body #about-me .left .center img {
+    width: 45%;
+  }
+  html body #about-me .left .center blockquote {
+    width: 70%;
+  }
+  html body #about-me .right p {
+    font-size: 1.2em;
+  }
+}
+@media all and (max-width: 900px) {
+  html body #contact {
+    display: block;
+    padding-top: 20px;
+  }
+  html body #contact .center-title {
+    display: flex;
+  }
+  html body #contact .left,
+html body #contact .right {
+    padding: 25px 35px;
+  }
+  html body #contact .left {
+    display: none;
+  }
+  html body #contact .right #contact-form {
+    width: 60%;
+  }
+}
+@media all and (max-width: 850px) {
+  html body #portfolio {
+    padding: 20px 20px 35px;
+  }
+  html body #portfolio #projects .project-container .project {
+    width: 55vw;
+    height: 34vw;
+  }
+  html body #portfolio .modal-overlay .modal-project {
+    width: 80%;
+  }
+}
+@media all and (max-width: 768px) {
+  html body #portfolio #projects .project-container .project:after {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  html body #portfolio #projects .project-container .project:hover {
+    transform: none;
+  }
+  html body #portfolio #projects .project-container .project .see-project {
+    opacity: 1;
+    transform: none;
+    padding: 10px 14px;
+  }
+}
+@media all and (max-width: 700px) {
+  html body #portfolio .modal-overlay {
+    padding: 20px;
+  }
+  html body #portfolio .modal-overlay .modal-project {
+    width: 95%;
+  }
+  html body #home .center .name {
+    font-size: 9.5vw;
+  }
+  html body #home .center .name:after {
+    bottom: 3px;
+    height: 3px;
+  }
+  html body #portfolio {
+    padding: 20px 20px 35px;
+  }
+  html body #portfolio #projects .project-container .project {
+    width: 64vw;
+    height: 40vw;
+  }
+  html body #contact .right #contact-form {
+    width: 70%;
+  }
+  html body #about-me .left,
+html body #about-me .right {
+    padding: 25px 15px;
+  }
+  html body #about-me .left .center img {
+    width: 60%;
+  }
+  html body #about-me .left .center blockquote {
+    font-size: 1em;
+    width: 60%;
+  }
+  html body #about-me .right p {
+    font-size: 1.2em;
+    width: 80%;
+  }
+  html body footer .center {
+    justify-content: space-between;
+    width: 100%;
+  }
+  html body footer .center .left {
+    flex-basis: auto;
+  }
+  html body footer .center .right {
+    flex-basis: auto;
+  }
+}
+@media all and (max-width: 549px) {
+  html body #contact .right #contact-form {
+    width: 85%;
+  }
+  html body #portfolio #projects .project-container .project {
+    width: 70vw;
+    height: 43vw;
+  }
+  html body #portfolio .modal-overlay .modal-project {
+    width: 100%;
+  }
+  html body #about-me {
+    display: block;
+  }
+  html body #about-me .center-title {
+    padding-top: 20px;
+    display: flex;
+  }
+  html body #about-me .left {
+    display: none;
+  }
+  html body #about-me .right {
+    background-color: #fff;
+    padding-top: 0;
+  }
+  html body #about-me .right p {
+    font-size: 1.2em;
+    width: 80%;
+  }
+  html body footer {
+    padding: 25px 30px;
+  }
+}
+@media all and (max-width: 500px) {
+  html body #home .center .status {
+    font-size: 1.3em;
+  }
+  html body .center-title {
+    padding: 0 20px;
+  }
+  html body .center-title .section-title {
+    font-size: 2.2em;
+  }
+  html body #portfolio .center-title {
+    padding: 0;
+  }
+}
+@media all and (max-width: 425px) {
+  html body #home .center .name:after {
+    bottom: 1px;
+  }
+  html body #home .center .status {
+    font-size: 1.2em;
+  }
+  html body #portfolio #projects .project-container .project {
+    width: 80vw;
+    height: 49vw;
+  }
+  html body #portfolio .modal-overlay {
+    padding: 10px;
+  }
+  html body #portfolio .modal-overlay .modal-project .info {
+    padding: 20px 20px 20px;
+  }
+  html body #portfolio .modal-overlay .modal-project .info .links {
+    padding-top: 0;
+  }
+  html body #contact .right #contact-form {
+    width: 100%;
+  }
+  html body #contact .right #contact-form textarea {
+    height: 140px;
+  }
+  html body .center-title .section-title {
+    font-size: 2em;
+  }
+  html body footer .center .left {
+    font-size: 0.9em;
+  }
+  html body footer .center .left a:first-child {
+    display: block;
+    margin-right: 0;
+    margin-bottom: 5px;
+  }
+  html body footer .center .right {
+    font-size: 0.85em;
+  }
+  html body footer .center .right a:last-child {
+    margin-left: 12px;
+  }
 }
 
 /*# sourceMappingURL=home.css.map */

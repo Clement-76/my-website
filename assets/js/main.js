@@ -2,15 +2,16 @@ import config from './config';
 import changeMenuOnScroll from './changeMenuOnScroll';
 import scrollToEltOnClick from './scrollToEltOnClick';
 import ProjectModal from './ProjectModal';
-import Project from "./Project";
+import Project from './Project';
+import Menu from './Menu';
 
 changeMenuOnScroll('menu', '#fffdf7', 'rgba(0, 0, 0, 0.7)');
 
 let menuHeight = $('#menu').outerHeight();
-scrollToEltOnClick('go-down', 'about-me', menuHeight);
+scrollToEltOnClick($('#go-down'), 'about-me', config.menuBreakpoint, menuHeight);
 
 $('.menu-item').each((i, elt) => {
-    scrollToEltOnClick($(elt).attr('id'), $(elt).attr('data-target-id'), menuHeight);
+    scrollToEltOnClick($(elt), $(elt).attr('data-target-id'), config.menuBreakpoint, menuHeight);
 });
 
 $.get(config.baseUrl + '/projects', (data) => {
@@ -19,3 +20,19 @@ $.get(config.baseUrl + '/projects', (data) => {
         new ProjectModal('portfolio', project);
     });
 }, 'JSON');
+
+new Menu('mobile-menu', 'close-menu', 'open-menu', 'menu-overlay');
+
+let homeSectionHeight = $('#home').innerHeight();
+let topValue = homeSectionHeight - parseFloat($('#open-menu').css('top')) - parseFloat($('#open-menu').css('padding-top'));
+
+const checkScrollMenu = () => {
+    if (window.scrollY > topValue) {
+        $('#open-menu div').css('background-color', '#222');
+    } else {
+        $('#open-menu div').css('background-color', '#fff');
+    }
+}
+
+checkScrollMenu();
+$(window).on('scroll', checkScrollMenu);

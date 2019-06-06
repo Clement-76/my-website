@@ -2,17 +2,30 @@ import create from "./create";
 
 class ProjectModal {
 
+    /**
+     * @param modalsContainerId
+     * @param project
+     */
     constructor(modalsContainerId, project) {
         this.modalsContainer = $('#' + modalsContainerId);
         this.createModal(project);
     }
 
+    /**
+     * create the modal HTML element and stores it
+     * @param description
+     * @param fullImagePath
+     * @param link
+     * @param repoLink
+     * @param title
+     * @param openBtn
+     */
     createModal({description, fullImagePath, link, repoLink, title, openBtn}) {
         this.modal = create('div', {class: 'modal-overlay'});
         let githubLink = '';
 
         if (repoLink !== null) {
-            githubLink = `<a class="github" href="${repoLink}"><i class="icon-github"></i></a>`;
+            githubLink = `<a class="github" href="${repoLink}" target="_blank"><i class="icon-github"></i></a>`;
         }
 
         $(this.modal).html(`
@@ -38,12 +51,19 @@ class ProjectModal {
         this.modalsContainer.append(this.modal);
     }
 
+    /**
+     * show the modal
+     */
     openModal() {
         $('body').css('overflow', 'hidden');
         $(this.modal).css('visibility', 'visible');
         $(this.modal).find('.modal-project').css('transform', 'scale(1)');
     }
 
+    /**
+     * hide the modal
+     * @param e
+     */
     closeModal(e) {
         if (e.currentTarget === e.target) {
             $(this.modal).find('.modal-project').css('transform' ,'scale(0)');

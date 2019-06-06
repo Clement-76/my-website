@@ -1,4 +1,5 @@
 @import "variables";
+@import "menu";
 
 html {
     height: 100%;
@@ -10,64 +11,9 @@ html {
         color: $raisin-black;
         overflow-x: hidden;
 
-        *::selection {
+        ::selection {
             color: $white;
             background-color: $raisin-black;
-        }
-
-        #menu {
-            position: fixed;
-            z-index: 1;
-            top: 0;
-            left: 0;
-            right: 0;
-            display: flex;
-            justify-content: center;
-            padding: 8px 15px;
-
-            nav {
-                width: 60%;
-
-                ul {
-                    display: flex;
-                    justify-content: space-between;
-                    padding-left: 0;
-                    margin: 0;
-
-                    li {
-                        list-style: none;
-
-                        a {
-                            display: block;
-                            cursor: pointer;
-                            font-family: 'Montserrat', sans-serif;
-                            $padding-side: 8px;
-                            padding: 16px $padding-side;
-                            box-sizing: border-box;
-                            position: relative;
-                            color: $white;
-                            text-decoration: none;
-
-                            &:after {
-                                content: '';
-                                position: absolute;
-                                bottom: 12px;
-                                left: $padding-side;
-                                height: 2px;
-                                transform-origin: left;
-                                transform: scale(0);
-                                transition-duration: 0.3s;
-                                width: 65%;
-                                background-color: $white;
-                            }
-
-                            &:hover:after {
-                                transform: scale(1);
-                            }
-                        }
-                    }
-                }
-            }
         }
 
         #home {
@@ -80,7 +26,7 @@ html {
             justify-content: center;
             align-items: center;
 
-            *::selection {
+            ::selection {
                 color: $raisin-black;
                 background-color: $white;
             }
@@ -176,6 +122,14 @@ html {
         #about-me {
             display: flex;
 
+            .center-title {
+                display: none;
+
+                .section-title:after {
+                    background-color: $pale-gold;
+                }
+            }
+
             .left,
             .right {
                 padding: 50px;
@@ -220,35 +174,35 @@ html {
             }
         }
 
+        .center-title {
+            display: flex;
+            justify-content: center;
+
+            .section-title {
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 600;
+                font-size: 3em;
+                position: relative;
+                display: flex;
+                justify-content: center;
+                margin-top: 0;
+                margin-bottom: 25px;
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    bottom: -2px;
+                    left: 0;
+                    height: 3px;
+                    width: 70%;
+                    background-color: $red;
+                }
+            }
+        }
+
         #portfolio {
             background-color: $light-grey;
             padding: 20px 70px 60px;
-
-            .center {
-                display: flex;
-                justify-content: center;
-
-                .section-title {
-                    font-family: 'Montserrat', sans-serif;
-                    font-weight: 600;
-                    font-size: 3em;
-                    position: relative;
-                    display: flex;
-                    justify-content: center;
-                    margin-top: 0;
-                    margin-bottom: 25px;
-
-                    &:after {
-                        content: '';
-                        position: absolute;
-                        bottom: -2px;
-                        left: 0;
-                        height: 3px;
-                        width: 70%;
-                        background-color: $red;
-                    }
-                }
-            }
 
             .modal-overlay {
                 position: fixed;
@@ -445,6 +399,10 @@ html {
                 padding: 50px 50px 25px;
             }
 
+            .center-title {
+                display: none;
+            }
+
             .left {
                 flex-basis: 50%;
                 background-color: $red;
@@ -595,7 +553,7 @@ html {
                             }
                         }
 
-                        .icon-linkedin {
+                        &:last-child {
                             margin-left: 25px;
                         }
                     }
@@ -605,3 +563,344 @@ html {
     }
 }
 
+@media all and (max-width: 1271px) {
+    html body {
+        #portfolio {
+            padding: 20px 30px 50px;
+
+            #projects .project-container .project {
+                width: 40vw;
+                height: 25vw;
+            }
+        }
+
+        #about-me {
+            .left,
+            .right {
+                padding: 25px;
+            }
+        }
+    }
+}
+
+@media all and (max-width: 1080px) {
+    html body {
+        #portfolio {
+            .modal-overlay .modal-project {
+                width: 70%;
+            }
+        }
+    }
+}
+
+@media all and (max-width: 983px) {
+    html body {
+        #about-me {
+            .left {
+                .center {
+                    img {
+                        width: 45%;
+                    }
+
+                    blockquote {
+                        width: 70%;
+                    }
+                }
+            }
+
+            .right {
+                p {
+                    font-size: 1.2em;
+                }
+            }
+        }
+    }
+}
+
+@media all and (max-width: 900px) {
+    html body {
+        #contact {
+            display: block;
+            padding-top: 20px;
+
+            .center-title {
+                display: flex;
+            }
+
+            .left,
+            .right {
+                padding: 25px 35px;
+            }
+
+            .left {
+                display: none;
+            }
+
+            .right {
+                #contact-form {
+                    width: 60%;
+                }
+            }
+        }
+    }
+}
+
+@media all and (max-width: 850px) {
+    html body {
+        #portfolio {
+            padding: 20px 20px 35px;
+
+            #projects .project-container .project {
+                width: 55vw;
+                height: 34vw;
+            }
+
+            .modal-overlay .modal-project {
+                width: 80%;
+            }
+        }
+    }
+}
+
+@media all and (max-width: 768px) {
+    html body {
+        #portfolio #projects .project-container .project {
+            &:after {
+                opacity: 1;
+                background-color: rgba(0, 0, 0, 0.3);
+            }
+
+            &:hover {
+                transform: none;
+            }
+
+            .see-project {
+                opacity: 1;
+                transform: none;
+                padding: 10px 14px;
+            }
+        }
+    }
+}
+
+@media all and (max-width: 700px) {
+    html body {
+        #portfolio {
+            .modal-overlay {
+                padding: 20px;
+
+                .modal-project {
+                    width: 95%;
+                }
+            }
+        }
+
+        #home {
+            .center {
+
+                .name {
+                    font-size: 9.5vw;
+
+                    &:after {
+                        bottom: 3px;
+                        height: 3px;
+                    }
+                }
+            }
+        }
+
+        #portfolio {
+            padding: 20px 20px 35px;
+
+            #projects .project-container .project {
+                width: 64vw;
+                height: 40vw;
+            }
+        }
+
+        #contact .right #contact-form {
+            width: 70%;
+        }
+
+        #about-me {
+            .left,
+            .right {
+                padding: 25px 15px;
+            }
+
+            .left {
+                .center {
+                    img {
+                        width: 60%;
+                    }
+
+                    blockquote {
+                        font-size: 1em;
+                        width: 60%;
+                    }
+                }
+            }
+
+            .right {
+                p {
+                    font-size: 1.2em;
+                    width: 80%;
+                }
+            }
+        }
+
+        footer {
+            .center {
+                justify-content: space-between;
+                width: 100%;
+
+                .left {
+                    flex-basis: auto;
+                }
+
+                .right {
+                    flex-basis: auto;
+                }
+            }
+        }
+    }
+}
+
+@media all and (max-width: 549px) {
+    html body {
+        #contact .right #contact-form {
+            width: 85%;
+        }
+
+        #portfolio {
+            #projects .project-container .project {
+                width: 70vw;
+                height: 43vw;
+            }
+
+            .modal-overlay .modal-project {
+                width: 100%;
+            }
+        }
+
+        #about-me {
+            display: block;
+
+            .center-title {
+                padding-top: 20px;
+                display: flex;
+            }
+
+            .left {
+                display: none;
+            }
+
+            .right {
+                background-color: $white;
+                padding-top: 0;
+
+                p {
+                    font-size: 1.2em;
+                    width: 80%;
+                }
+            }
+        }
+
+        footer {
+            padding: 25px 30px;
+        }
+    }
+}
+
+@media all and (max-width: 500px) {
+    html body {
+        #home {
+            .center .status {
+                font-size: 1.3em;
+            }
+        }
+
+        .center-title {
+            padding: 0 20px;
+
+            .section-title {
+                font-size: 2.2em;
+            }
+        }
+
+        #portfolio .center-title {
+            padding: 0;
+        }
+    }
+}
+
+@media all and (max-width: 425px) {
+    html body {
+        #home {
+            .center {
+                .name:after {
+                    bottom: 1px;
+                }
+
+                .status {
+                    font-size: 1.2em;
+                }
+            }
+        }
+
+        #portfolio {
+            #projects .project-container .project {
+                width: 80vw;
+                height: 49vw;
+            }
+
+            .modal-overlay {
+                padding: 10px;
+
+                .modal-project {
+                    .info {
+                        padding: 20px 20px 20px;
+
+                        .links {
+                            padding-top: 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        #contact .right #contact-form {
+            width: 100%;
+
+            textarea {
+                height: 140px;
+            }
+        }
+
+        .center-title .section-title {
+            font-size: 2em;
+        }
+
+        footer {
+            .center {
+                .left {
+                    font-size: 0.9em;
+
+                    a:first-child {
+                        display: block;
+                        margin-right: 0;
+                        margin-bottom: 5px;
+                    }
+                }
+
+                .right {
+                    font-size: 0.85em;
+
+                    a:last-child {
+                        margin-left: 12px;
+                    }
+                }
+            }
+        }
+    }
+}
