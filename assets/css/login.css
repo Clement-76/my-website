@@ -133,5 +133,15 @@ html body #login button:active {
     width: 80%;
   }
 }
+@media all and (min-width: 1600px) {
+  html body #login {
+    width: 21%;
+  }
+}
+@media all and (min-width: 2000px) {
+  html body #login {
+    width: 18%;
+  }
+}
 
 /*# sourceMappingURL=login.css.map */

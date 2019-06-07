@@ -10,6 +10,7 @@
 }
 #menu nav {
   width: 60%;
+  box-sizing: border-box;
 }
 #menu nav ul {
   display: flex;
@@ -128,6 +129,16 @@
 
   #open-menu, #mobile-menu {
     display: block;
+  }
+}
+@media all and (min-width: 1600px) {
+  #menu nav {
+    width: 50%;
+  }
+}
+@media all and (min-width: 2000px) {
+  #menu nav {
+    padding: 0 5%;
   }
 }
 html {
@@ -415,8 +426,8 @@ html body #portfolio #projects .project-container {
   position: relative;
 }
 html body #portfolio #projects .project-container .project {
-  width: 350px;
-  height: 215px;
+  width: 26vw;
+  height: 16vw;
   opacity: 1;
   transition-duration: 0.5s;
   background-repeat: no-repeat;
@@ -617,6 +628,15 @@ html body footer .center .right a:last-child {
   html body #about-me .left,
 html body #about-me .right {
     padding: 25px;
+  }
+  html body #contact .left {
+    padding: 50px 35px 0;
+  }
+  html body #contact .right {
+    padding: 50px 35px 0;
+  }
+  html body #contact .right #contact-form {
+    width: 90%;
   }
 }
 @media all and (max-width: 1080px) {
@@ -819,6 +839,71 @@ html body #about-me .right {
   }
   html body footer .center .right a:last-child {
     margin-left: 12px;
+  }
+}
+@media all and (min-width: 1000px) {
+  html body footer .center {
+    box-sizing: border-box;
+    width: 65%;
+  }
+}
+@media all and (min-width: 1300px) {
+  html body footer .center {
+    padding: 0 6%;
+  }
+}
+@media all and (min-width: 1650px) {
+  html body #portfolio .modal-overlay .modal-project {
+    width: 55%;
+  }
+  html body footer .center {
+    width: 58%;
+  }
+}
+@media all and (min-width: 1700px) {
+  html body #home .center .name {
+    font-size: 7vw;
+  }
+  html body #home .center .status {
+    font-size: 1.8em;
+  }
+}
+@media all and (min-width: 1900px) {
+  html body #about-me .left .center img {
+    width: 30%;
+  }
+  html body #portfolio #projects .project-container {
+    margin: 20px;
+  }
+  html body #contact .right #contact-form {
+    width: 55%;
+  }
+}
+@media all and (min-width: 2000px) {
+  html body #portfolio .modal-overlay .modal-project {
+    width: 45%;
+  }
+  html body footer .center {
+    padding: 0 10%;
+  }
+}
+@media all and (min-width: 2300px) {
+  html body #home .center .name {
+    font-size: 6vw;
+  }
+  html body #about-me .left .center img {
+    width: 25%;
+  }
+  html body #contact .right #contact-form {
+    padding: 0 5%;
+  }
+  html body footer .center {
+    padding: 0 15%;
+  }
+}
+@media all and (min-width: 2500px) {
+  html body #portfolio .modal-overlay .modal-project {
+    width: 40%;
   }
 }
 

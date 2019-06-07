@@ -12,6 +12,7 @@
 
     nav {
         width: 60%;
+        box-sizing: border-box;
 
         ul {
             display: flex;
@@ -147,3 +148,17 @@
         display: block;
     }
 }
+
+@media all and (min-width: 1600px) {
+    #menu nav {
+        width: 50%;
+    }
+}
+
+@media all and (min-width: 2000px) {
+    #menu nav {
+        padding: 0 5%;
+    }
+}
+
+
