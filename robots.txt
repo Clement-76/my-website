@@ -2,5 +2,3 @@ User-agent: *
 Disallow: /admin/
 Disallow: /admin/*
 Disallow: /login/
-
-Sitemap: http://localhost/projects/my-website/sitemap.xml

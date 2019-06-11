@@ -4,6 +4,7 @@ import scrollToEltOnClick from './scrollToEltOnClick';
 import ProjectModal from './ProjectModal';
 import Project from './Project';
 import Menu from './Menu';
+import ContactForm from "./ContactForm";
 
 changeMenuOnScroll('menu', '#fffdf7', 'rgba(0, 0, 0, 0.7)');
 
@@ -36,3 +37,5 @@ const checkScrollMenu = () => {
 
 checkScrollMenu();
 $(window).on('scroll', checkScrollMenu);
+
+let contactForm = new ContactForm('contact-form');

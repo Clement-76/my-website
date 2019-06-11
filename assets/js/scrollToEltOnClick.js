@@ -9,7 +9,6 @@ function scrollToEltOnClick(elt, targetElementId, breakpointMenuValue, offset = 
     let targetElement = $('#'+ targetElementId);
 
     $(elt).on('click', (e) => {
-        console.log('test');
         e.preventDefault();
 
         let scrollTopValue = targetElement.offset().top;

@@ -1,0 +1,14 @@
+.modal-container {
+    .info-message {
+        font-size: 1.8em;
+        font-weight: 400;
+    }
+
+    .confirm-btn {
+        background-color: $raisin-black !important;
+
+        &:focus {
+            box-shadow: 0 0 0 2px #fff, 0 0 0 4px rgba(28, 28, 28, 0.4);
+        }
+    }
+}

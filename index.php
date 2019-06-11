@@ -1,5 +1,6 @@
 <?php
 
+use App\Controller\ContactController;
 use App\Controller\HomeController;
 use App\Controller\ProjectsController;
 use App\Controller\UsersController;
@@ -34,11 +35,16 @@ $router->map('GET', '/logout/', function() {
     $userController->logout();
 });
 
+$router->map('POST', '/contact/', function() {
+    $contactController = new ContactController();
+    $contactController->sendMessage();
+});
+
 $router->map('GET', '/admin/', function() {
 
 });
 
-$router->map('GET', '/contact/', function() {
+$router->map('GET', '/legal-notice/', function() {
 
 });
 

@@ -21,11 +21,11 @@
     <header id="menu">
         <nav>
             <ul>
-                <li class="menu-item" data-target-id="home" class="home-anchor"><a href="#" accesskey="h">HOME</a></li>
-                <li class="menu-item" data-target-id="about-me" class="about-me-anchor"><a href="#" accesskey="a">ABOUT ME</a></li>
-                <li class="menu-item" data-target-id="portfolio" class="portfolio-anchor"><a href="#" accesskey="p">PROJETS</a></li>
-                <li class="menu-item" data-target-id="contact" class="contact-anchor"><a href="#" accesskey="c">CONTACT</a></li>
-                <li><a href="{{ baseUrl }}assets/files/cv.pdf" target="_blank" title="Télécharger le CV">CV</a></li>
+                <li data-target-id="home" class="menu-item home-anchor"><a href="#" accesskey="h">HOME</a></li>
+                <li data-target-id="about-me" class="menu-item about-me-anchor"><a href="#" accesskey="a">ABOUT ME</a></li>
+                <li data-target-id="portfolio" class="menu-item portfolio-anchor"><a href="#" accesskey="p">PROJETS</a></li>
+                <li data-target-id="contact" class="menu-item contact-anchor"><a href="#" accesskey="c">CONTACT</a></li>
+                <li><a href="{{ baseUrl }}assets/files/cv.pdf" rel="noopener" target="_blank" title="Télécharger le CV">CV</a></li>
             </ul>
         </nav>
     </header>
@@ -39,11 +39,11 @@
         <div id="close-menu"><i class="icon-close"></i></div>
         <nav>
             <ul>
-                <li class="menu-item" data-target-id="home" class="home-anchor"><a href="#" accesskey="h">HOME</a></li>
-                <li class="menu-item" data-target-id="about-me" class="about-me-anchor"><a href="#" accesskey="a">ABOUT ME</a></li>
-                <li class="menu-item" data-target-id="portfolio" class="portfolio-anchor"><a href="#" accesskey="p">PROJETS</a></li>
-                <li class="menu-item" data-target-id="contact" class="contact-anchor"><a href="#" accesskey="c">CONTACT</a></li>
-                <li><a href="{{ baseUrl }}assets/files/cv.pdf" target="_blank" title="Télécharger le CV">CV</a></li>
+                <li data-target-id="home" class="menu-item home-anchor"><a href="#" accesskey="h">HOME</a></li>
+                <li data-target-id="about-me" class="menu-item about-me-anchor"><a href="#" accesskey="a">ABOUT ME</a></li>
+                <li data-target-id="portfolio" class="menu-item portfolio-anchor"><a href="#" accesskey="p">PROJETS</a></li>
+                <li data-target-id="contact" class="menu-item contact-anchor"><a href="#" accesskey="c">CONTACT</a></li>
+                <li><a href="{{ baseUrl }}assets/files/cv.pdf" rel="noopener" target="_blank" title="Télécharger le CV">CV</a></li>
             </ul>
         </nav>
     </aside>
@@ -91,10 +91,10 @@
 
         <div class="right">
             <form id="contact-form">
-                <label><input type="text" name="name" placeholder="Votre nom"></label>
-                <label><input type="email" name="email" placeholder="Votre email"></label>
-                <label><input type="text" name="object" placeholder="Sujet du message"></label>
-                <textarea name="message" cols="30" rows="7" placeholder="Votre message"></textarea>
+                <label><input type="text" name="name" placeholder="Votre nom" maxlength="200" required></label>
+                <label><input type="email" name="email" placeholder="Votre email" maxlength="200" required></label>
+                <label><input type="text" name="object" placeholder="Sujet du message"  required></label>
+                <textarea name="message" cols="30" rows="7" placeholder="Votre message" required></textarea>
                 <div><input type="submit" value="Envoyer le message"></div>
             </form>
         </div>
@@ -108,13 +108,14 @@
             </div>
 
             <div class="right">
-                <a href="https://github.com/Clement-76" target="_blank" title="Github" accesskey="g"><i class="icon-github"></i></a>
-                <a href="https://www.linkedin.com/in/clementpatigny/" target="_blank" title="Linkedin" accesskey="l"><i class="icon-linkedin"></i></a>
+                <a href="https://github.com/Clement-76" rel="noopener" target="_blank" title="Github" accesskey="g"><i class="icon-github"></i></a>
+                <a href="https://www.linkedin.com/in/clementpatigny/" rel="noopener" target="_blank" title="Linkedin" accesskey="l"><i class="icon-linkedin"></i></a>
             </div>
         </div>
     </footer>
 {% endblock %}
 
 {% block scripts %}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     <script src="{{ baseUrl }}assets/js/main.js" type="module"></script>
 {% endblock %}

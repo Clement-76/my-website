@@ -25,7 +25,7 @@ class ProjectModal {
         let githubLink = '';
 
         if (repoLink !== null) {
-            githubLink = `<a class="github" href="${repoLink}" target="_blank"><i class="icon-github"></i></a>`;
+            githubLink = `<a class="github" href="${repoLink}" rel="noopener" target="_blank"><i class="icon-github"></i></a>`;
         }
 
         $(this.modal).html(`
@@ -39,7 +39,7 @@ class ProjectModal {
                 <h3>${title}</h3>
                 <p class="description">${description}</p>
                 <div class="links">
-                    <a href="${link}" target="_blank" class="open-site">Voir le site</a>
+                    <a href="${link}" rel="noopener" target="_blank" class="open-site">Voir le site</a>
                     ${githubLink}
                 </div>
             </div>

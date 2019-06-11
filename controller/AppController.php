@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 abstract class AppController {
+
     protected $twig;
 
     /**
