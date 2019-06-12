@@ -2,11 +2,18 @@ import config from "./config";
 
 class ContactForm {
 
+    /**
+     * @param contactFormId
+     */
     constructor(contactFormId) {
         this.form = $('#' + contactFormId);
         this.form.on('submit', this.sendMessage.bind(this));
     }
 
+    /**
+     * send a message with an ajax request and return a status message
+     * @param e
+     */
     sendMessage(e) {
         e.preventDefault();
 
@@ -30,15 +37,17 @@ class ContactForm {
             } else if (data.status === 'error') {
                 this.displayStatusMessage('error', data.message);
             } else {
-                if (typeof data.status === 'undefined') {
-                    throw new Error('Undefined data.status');
-                } else {
-                    throw new Error('Bad value data.status');
-                }
+                console.error('Bad value or undefined property status of data.status');
+                this.displayStatusMessage('error', 'Une erreur imprévue s\'est produite');
             }
         });
     }
 
+    /**
+     * display a message in a modal using Swal
+     * @param status
+     * @param text
+     */
     displayStatusMessage(status, text) {
         Swal.fire({
             type: status,

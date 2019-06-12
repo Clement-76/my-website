@@ -2,6 +2,7 @@
 
 use App\Controller\ContactController;
 use App\Controller\HomeController;
+use App\Controller\PageController;
 use App\Controller\ProjectsController;
 use App\Controller\UsersController;
 
@@ -40,11 +41,12 @@ $router->map('POST', '/contact/', function() {
     $contactController->sendMessage();
 });
 
-$router->map('GET', '/admin/', function() {
-
+$router->map('GET', '/legal-notice/', function() {
+    $pageController = new PageController();
+    $pageController->displayLegalNotice();
 });
 
-$router->map('GET', '/legal-notice/', function() {
+$router->map('GET', '/admin/', function() {
 
 });
 

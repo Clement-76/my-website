@@ -1,0 +1,123 @@
+@import "variables";
+
+body {
+    font-family: 'Varela Round', sans-serif;
+    color: $raisin-black;
+    font-size: 1.1em;
+
+    ::selection {
+        color: $white;
+        background-color: $raisin-black;
+    }
+
+    .icon-left-arrow {
+        cursor: pointer;
+        color: $raisin-black;
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        font-size: 2.5em;
+        padding: 10px;
+    }
+
+
+    .container {
+        width: 70%;
+        margin: 0 auto;
+
+        .big-title {
+            text-align: center;
+            margin-bottom: 55px;
+            font-size: 2.1em;
+
+            span {
+                position: relative;
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    bottom: -2px;
+                    left: 0;
+                    height: 3px;
+                    width: 65%;
+                    background-color: $red;
+                }
+            }
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        a {
+            color: $raisin-black;
+            text-decoration: none;
+            position: relative;
+
+            $transition-duration: 0.3s;
+            transition-duration: $transition-duration;
+
+            &:after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background-color: $raisin-black;
+                height: 2px;
+                transition-duration: $transition-duration;
+            }
+
+            &:hover {
+                color: $red;
+
+                &:after {
+                    background-color: $red;
+                }
+            }
+        }
+    }
+}
+
+@media all and (max-width: 850px) {
+    body {
+        .container {
+            width: 80%;
+        }
+    }
+}
+
+@media all and (max-width: 515px) {
+    body {
+        .container {
+            width: 85%;
+
+            .big-title {
+                margin-top: 80px;
+                font-size: 2em;
+            }
+        }
+    }
+}
+
+@media all and (max-width: 420px) {
+    body {
+        .icon-left-arrow {
+            top: 10px;
+            left: 10px;
+        }
+
+        #login {
+            padding: 20px;
+            width: 80%;
+        }
+
+        .container {
+            width: 90%;
+
+            .big-title {
+                font-size: 1.8em;
+            }
+        }
+    }
+}

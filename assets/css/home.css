@@ -532,8 +532,16 @@ html body #contact .right #contact-form {
   box-sizing: border-box;
   width: 70%;
 }
-html body #contact .right #contact-form input, html body #contact .right #contact-form textarea {
+html body #contact .right #contact-form label {
+  margin-bottom: 2px;
   font-size: 1.1em;
+  display: block;
+}
+html body #contact .right #contact-form textarea {
+  height: 140px;
+}
+html body #contact .right #contact-form input, html body #contact .right #contact-form textarea {
+  font-size: 1em;
   min-width: 100%;
   max-width: 100%;
   padding: 12px 16px;
@@ -615,13 +623,13 @@ html body footer .center .right {
 html body footer .center .right a {
   text-decoration: none;
 }
-html body footer .center .right a i {
+html body footer .center .right a .icon-github, html body footer .center .right a .icon-linkedin {
   color: #fff;
   font-size: 3.1em;
   cursor: pointer;
   transition-duration: 0.5s;
 }
-html body footer .center .right a i:hover {
+html body footer .center .right a .icon-github:hover, html body footer .center .right a .icon-linkedin:hover {
   color: #ef3e36;
 }
 html body footer .center .right a:last-child {

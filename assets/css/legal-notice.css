@@ -1,0 +1,97 @@
+body {
+  font-family: "Varela Round", sans-serif;
+  color: #222;
+  font-size: 1.1em;
+}
+body ::selection {
+  color: #fff;
+  background-color: #222;
+}
+body .icon-left-arrow {
+  cursor: pointer;
+  color: #222;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  font-size: 2.5em;
+  padding: 10px;
+}
+body .container {
+  width: 70%;
+  margin: 0 auto;
+}
+body .container .big-title {
+  text-align: center;
+  margin-bottom: 55px;
+  font-size: 2.1em;
+}
+body .container .big-title span {
+  position: relative;
+}
+body .container .big-title span:after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  height: 3px;
+  width: 65%;
+  background-color: #ef3e36;
+}
+body .container h1, body .container h2, body .container h3, body .container h4, body .container h5 {
+  font-family: "Montserrat", sans-serif;
+}
+body .container a {
+  color: #222;
+  text-decoration: none;
+  position: relative;
+  transition-duration: 0.3s;
+}
+body .container a:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #222;
+  height: 2px;
+  transition-duration: 0.3s;
+}
+body .container a:hover {
+  color: #ef3e36;
+}
+body .container a:hover:after {
+  background-color: #ef3e36;
+}
+
+@media all and (max-width: 850px) {
+  body .container {
+    width: 80%;
+  }
+}
+@media all and (max-width: 515px) {
+  body .container {
+    width: 85%;
+  }
+  body .container .big-title {
+    margin-top: 80px;
+    font-size: 2em;
+  }
+}
+@media all and (max-width: 420px) {
+  body .icon-left-arrow {
+    top: 10px;
+    left: 10px;
+  }
+  body #login {
+    padding: 20px;
+    width: 80%;
+  }
+  body .container {
+    width: 90%;
+  }
+  body .container .big-title {
+    font-size: 1.8em;
+  }
+}
+
+/*# sourceMappingURL=legal-notice.css.map */
