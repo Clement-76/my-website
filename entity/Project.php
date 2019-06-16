@@ -97,7 +97,7 @@ class Project extends Entity implements \JsonSerializable {
     /**
      * @return \DateTime
      */
-    public function getCreationDate(): \DateTime {
+    public function getCreationDate() {
         return $this->creationDate;
     }
 

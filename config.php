@@ -23,3 +23,6 @@ define('TIMEZONE', 'Europe/Paris');
 
 // the base path of the website
 define('BASEPATH', '/projects/my-website');
+
+// the folder where the projects images are
+define('PROJECTS_PATH', 'assets/img/projects');

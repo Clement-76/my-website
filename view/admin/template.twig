@@ -1,0 +1,35 @@
+{% extends "template.twig" %}
+
+{% block links %}
+    <link rel="stylesheet" href="{{ baseUrl }}assets/css/fonts.css">
+    <link rel="stylesheet" href="{{ baseUrl }}assets/css/icons.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600|Varela+Round&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+{% endblock %}
+
+{% block content %}
+    <header>
+        <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarToggler">
+                <ul class="navbar-nav">
+                    <li class="nav-item {% if page == 'projects' %}active{% endif %}"><a class="nav-link" href="#">Projets</a></li>
+                    <li class="nav-item {% if page == 'description' %}active{% endif %}"><a class="nav-link" href="#">Description</a></li>
+                    <li class="nav-item {% if page == 'legal-notice' %}active{% endif %}"><a class="nav-link" href="#">Mentions légales</a></li>
+                    <li class="nav-item {% if page == 'cv' %}active{% endif %}"><a class="nav-link" href="#">CV</a></li>
+                </ul>
+
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="btn btn-outline-danger" href="{{ baseUrl }}logout">Se déconnecter</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+{% endblock %}
+
+{% block scripts %}
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+{% endblock %}

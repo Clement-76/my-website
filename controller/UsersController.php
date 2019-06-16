@@ -17,7 +17,7 @@ class UsersController extends AppController {
 
         // if the user is already connect
         if (isset($_SESSION['user'])) {
-            header('Location: '. BASEURL . '/admin');
+            header('Location: '. BASEURL . '/admin/projects');
             exit();
         }
 
@@ -29,7 +29,7 @@ class UsersController extends AppController {
 
             if (!$errors && password_verify($_POST['password'], $user->getPassword())) {
                 $_SESSION['user'] = $user;
-                header('Location: '. BASEURL . '/admin');
+                header('Location: '. BASEURL . '/admin/projects');
                 exit();
             } else {
                 $errors = true;

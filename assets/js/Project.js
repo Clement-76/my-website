@@ -14,7 +14,7 @@ class Project {
     constructor(projectsContainerId, {description, imagePath, link, repoLink, title}) {
         this.projectsContainer = $('#' + projectsContainerId);
         this.description = description;
-        this.fullImagePath = `${config.baseUrl}/${imagePath}`;
+        this.fullImagePath = `${config.baseUrl}/${config.projectsPath}/${imagePath}`;
         this.link = link;
         this.repoLink = repoLink;
         this.title = title;

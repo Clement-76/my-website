@@ -46,8 +46,19 @@ $router->map('GET', '/legal-notice/', function() {
     $pageController->displayLegalNotice();
 });
 
-$router->map('GET', '/admin/', function() {
+$router->map('GET', '/admin/projects/', function() {
+    $projectsController = new ProjectsController();
+    $projectsController->displayAdminProjects();
+});
 
+$router->map('GET', '/admin/editProject/[i:id]/', function($id) {
+    $projectsController = new ProjectsController();
+    $projectsController->editProject($id);
+});
+
+$router->map('GET', '/admin/deleteProject/[i:id]/', function($id) {
+    $projectsController = new ProjectsController();
+    $projectsController->deleteProject($id);
 });
 
 $match = $router->match(rtrim($_SERVER['REQUEST_URI'], '/') . '/');
