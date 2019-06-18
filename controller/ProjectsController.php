@@ -38,17 +38,37 @@ class ProjectsController extends AppController {
             exit();
         }
 
-        if (isset($_POST['title'])) {
+        $errors = [];
+
+        if (isset($_POST['title'], $_POST['repoLink'], $_POST['link'], $_POST['creationDate'], $_POST['description'])) {
 
             // check the values
             // create the image
+            // make the edit of the image optional (just the edit)
+            // -> if no image has been sent, don't change the value in the db
 
-            $newProjectData = [];
+            $newProjectData = [
+                'title' => $_POST['title'],
+                'repoLink' => $_POST['repoLink'],
+                'link' => $_POST['link'],
+                'creationDate' => $_POST['creationDate'],
+                'description' => $_POST['description'],
+            ];
+
+            // test here if a new image was send
+            // and push the imagePath in the data array if she was send
+
             $project->hydrate($newProjectData);
-            $projectManager->updateProject($project);
+            $success = $projectManager->updateProject($project);
+
+            if (!$success) $errors[] = 'mysql';
+            if (empty($errors)) header('Location: ' . BASEURL . '/admin/projects');
         }
 
-        echo $this->twig->render('admin/editProject.twig', ['project' => $project]);
+        echo $this->twig->render('admin/editProject.twig', [
+            'project' => $project,
+            'errors' => $errors
+        ]);
     }
 
     /**

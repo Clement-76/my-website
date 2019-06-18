@@ -51,7 +51,7 @@ $router->map('GET', '/admin/projects/', function() {
     $projectsController->displayAdminProjects();
 });
 
-$router->map('GET', '/admin/editProject/[i:id]/', function($id) {
+$router->map('GET|POST', '/admin/editProject/[i:id]/', function($id) {
     $projectsController = new ProjectsController();
     $projectsController->editProject($id);
 });

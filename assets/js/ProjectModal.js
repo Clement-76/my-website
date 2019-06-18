@@ -37,7 +37,7 @@ class ProjectModal {
 
             <div class="info">
                 <h3>${title}</h3>
-                <p class="description">${description}</p>
+                <div class="description">${description}</div>
                 <div class="links">
                     <a href="${link}" rel="noopener" target="_blank" class="open-site">Voir le site</a>
                     ${githubLink}

@@ -5,8 +5,46 @@
 {% block content %}
     {{ parent() }}
 
-    <form action="" method="post">
+    <section id="edit-project" class="container pb-3">
+        <h1 class="text-center">Modification du projet</h1>
 
-        <button>Modifier le projet</button>
-    </form>
+        <form action="" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="project-title">Titre du projet :</label>
+                <input class="form-control" type="text" name="title" id="project-title" required value="{{ project.getTitle() }}">
+            </div>
+            <div class="row">
+                <div class="form-group col-md">
+                    <label for="project-repo-link">lien du repository Github (facultatif) :</label>
+                    <input class="form-control" type="text" name="repoLink" id="project-repo-link" value="{{ project.getRepoLink() }}">
+                </div>
+                <div class="form-group col-md">
+                    <label for="project-link">Lien du projet :</label>
+                    <input class="form-control" type="text" name="link" id="project-link" required value="{{ project.getLink() }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="project-creation-date">Date de création du projet :</label>
+                <input class="form-control" type="date" name="creationDate" id="project-creation-date" required value="{{ project.getCreationDate() }}">
+            </div>
+            <div class="form-group">
+                <label for="project-image">Image du projet :</label>
+                <input class="form-control-file" type="file" name="image" id="project-image">
+            </div>
+            <div class="form-group">
+                <label for="project-description">Description du projet :</label>
+                <textarea class="form-control" name="description" id="project-description" cols="30" rows="5" required>{{ project.getDescription() }}</textarea>
+            </div>
+
+            <button class="btn btn-primary">Modifier le projet</button>
+        </form>
+    </section>
+{% endblock %}
+
+{% block scripts %}
+    {{ parent() }}
+
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="{{ baseUrl }}assets/js/fr_FR.js"></script>
+    <script src="{{ baseUrl }}assets/js/tinymce.js"></script>
 {% endblock %}
