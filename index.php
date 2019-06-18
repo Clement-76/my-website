@@ -56,6 +56,11 @@ $router->map('GET|POST', '/admin/editProject/[i:id]/', function($id) {
     $projectsController->editProject($id);
 });
 
+$router->map('GET|POST', '/admin/addProject/', function() {
+    $projectsController = new ProjectsController();
+    $projectsController->addProject();
+});
+
 $router->map('GET', '/admin/deleteProject/[i:id]/', function($id) {
     $projectsController = new ProjectsController();
     $projectsController->deleteProject($id);

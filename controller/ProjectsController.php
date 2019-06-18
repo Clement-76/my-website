@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Project;
 use App\Model\ProjectManager;
 use App\Services\JSON;
 
@@ -18,6 +19,11 @@ class ProjectsController extends AppController {
     }
 
     public function displayAdminProjects() {
+
+        if (!$this->isAdmin()) {
+            $this->redirect404();
+        }
+
         $projectManager = new ProjectManager();
         $projects = $projectManager->getProjects();
         echo $this->twig->render('admin/projects.twig', ['projects' => $projects]);
@@ -30,12 +36,16 @@ class ProjectsController extends AppController {
      * @throws \Twig\Error\SyntaxError
      */
     public function editProject($id) {
+
+        if (!$this->isAdmin()) {
+            $this->redirect404();
+        }
+
         $projectManager = new ProjectManager();
         $project = $projectManager->getProject($id);
 
         if (!$projectManager->projectExists($id)) {
-            header('HTTP/1.0 404 Not Found');
-            exit();
+            $this->redirect404();
         }
 
         $errors = [];
@@ -49,8 +59,8 @@ class ProjectsController extends AppController {
 
             $newProjectData = [
                 'title' => $_POST['title'],
-                'repoLink' => $_POST['repoLink'],
-                'link' => $_POST['link'],
+                'repoLink' => empty($_POST['repoLink']) ? null : $_POST['repoLink'],
+                'link' => empty($_POST['link']) ? null : $_POST['link'],
                 'creationDate' => $_POST['creationDate'],
                 'description' => $_POST['description'],
             ];
@@ -61,13 +71,60 @@ class ProjectsController extends AppController {
             $project->hydrate($newProjectData);
             $success = $projectManager->updateProject($project);
 
-            if (!$success) $errors[] = 'mysql';
+            if (!$success) $errors['mysql'] = true;
             if (empty($errors)) header('Location: ' . BASEURL . '/admin/projects');
         }
 
-        echo $this->twig->render('admin/editProject.twig', [
+        echo $this->twig->render('admin/edit-project.twig', [
             'project' => $project,
             'errors' => $errors
+        ]);
+    }
+
+    /**
+     * display the project form and if it was submit, check the values
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
+     */
+    public function addProject() {
+
+        if (!$this->isAdmin()) {
+            $this->redirect404();
+        }
+
+        $errors = [];
+        $project = null;
+
+        if (isset($_POST['title'], $_POST['repoLink'], $_POST['link'], $_POST['creationDate'], $_POST['description'])) {
+
+            // check the values
+            // create the image
+            // make the edit of the image optional (just the edit)
+            // -> if no image has been sent, don't change the value in the db
+
+            $projectData = [
+                'title' => $_POST['title'],
+                'repoLink' => empty($_POST['repoLink']) ? null : $_POST['repoLink'],
+                'link' => empty($_POST['link']) ? null : $_POST['link'],
+                'creationDate' => $_POST['creationDate'],
+                'description' => $_POST['description'],
+            ];
+
+            // test here if a new image was send
+            // and push the imagePath in the data array if she was send
+
+            $project = new Project($projectData);
+            $projectManager = new ProjectManager();
+            $success = $projectManager->createProject($project);
+
+            if (!$success) $errors['mysql'] = true;
+            if (empty($errors)) header('Location: ' . BASEURL . '/admin/projects');
+        }
+
+        echo $this->twig->render('admin/add-project.twig', [
+            'project' => $project,
+            'errors' => $errors // if there is an error we don't need to write again values
         ]);
     }
 
@@ -76,14 +133,24 @@ class ProjectsController extends AppController {
      * @throws \Exception
      */
     public function deleteProject($id) {
+
+        if (!$this->isAdmin()) {
+            $this->redirect404();
+        }
+
         $projectManager = new ProjectManager();
 
         if (!$projectManager->projectExists($id)) {
             echo JSON::JSONResponse('error', 'Ce projet n\'existe pas');
+            exit();
         }
 
-        $error = $projectManager->deleteProject($id);
+        $success = $projectManager->deleteProject($id);
 
-        if (!$error) echo JSON::JSONResponse('success');
+        if ($success) {
+            echo JSON::JSONResponse('success');
+        } else {
+            echo JSON::JSONResponse('error', 'Une erreur inconnue est survenue');
+        }
     }
 }

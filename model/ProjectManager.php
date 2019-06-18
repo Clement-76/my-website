@@ -100,8 +100,8 @@ class ProjectManager extends Manager {
         );
 
         $q->bindValue(':id', $id, \PDO::PARAM_INT);
-        $error = $q->execute();
-        return $error;
+        $success = $q->execute();
+        return $success;
     }
 
     /**
@@ -131,7 +131,30 @@ class ProjectManager extends Manager {
         $q->bindValue(':repoLink', $project->getRepoLink(), \PDO::PARAM_STR);
         $q->bindValue(':creationDate', $project->getCreationDate(), \PDO::PARAM_STR);
 
-        $error = $q->execute();
-        return $error;
+        $success = $q->execute();
+        return $success;
+    }
+
+    /**
+     * @param Project $project
+     * @return bool
+     * @throws \Exception
+     */
+    public function createProject(Project $project) {
+        $db = $this->getDb();
+        $q = $db->prepare(
+            'INSERT INTO my_website_projects(title, description, image_path, link, repo_link, creation_date)
+             VALUES(:title, :description, :imagePath, :link, :repoLink, :creationDate)'
+        );
+
+        $q->bindValue(':title', $project->getTitle(), \PDO::PARAM_STR);
+        $q->bindValue(':description', $project->getDescription(), \PDO::PARAM_STR);
+        $q->bindValue(':imagePath', $project->getImagePath(), \PDO::PARAM_STR);
+        $q->bindValue(':link', $project->getLink(), \PDO::PARAM_STR);
+        $q->bindValue(':repoLink', $project->getRepoLink(), \PDO::PARAM_STR);
+        $q->bindValue(':creationDate', $project->getCreationDate(), \PDO::PARAM_STR);
+
+        $success = $q->execute();
+        return $success;
     }
 }

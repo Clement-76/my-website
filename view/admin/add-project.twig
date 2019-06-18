@@ -1,0 +1,22 @@
+{% extends "admin/template.twig" %}
+
+{% set pageTitle = 'Admin - Ajout d\'un projet' %}
+
+{% block content %}
+    {{ parent() }}
+
+    <section id="add-project" class="container pb-3">
+        <h1 class="text-center">Création du projet</h1>
+
+        {% set submitText = 'Créer le projet' %}
+        {% include 'admin/project-form.twig' %}
+    </section>
+{% endblock %}
+
+{% block scripts %}
+    {{ parent() }}
+
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="{{ baseUrl }}assets/js/fr_FR.js"></script>
+    <script src="{{ baseUrl }}assets/js/tinymce.js"></script>
+{% endblock %}

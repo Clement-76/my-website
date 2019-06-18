@@ -7,7 +7,6 @@ $(function () {
         language_url : '/fr_FR.js',
         plugins: "lists, link, code, fullscreen, wordcount, autolink, autosave, table, hr",
         toolbar: 'formatselect | bold italic | link | alignleft aligncenter alignright | numlist bullist',
-        autosave_restore_when_empty: true,
         menubar: false,
         content_style: `
         * {

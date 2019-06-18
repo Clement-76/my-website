@@ -38,11 +38,17 @@
                         <td>{{ project.getTitle() }}</td>
                         <td>{{ project.getCreationDate()|date('d/m/Y') }}</td>
                         <td><a class="text-nowrap" href="{{ baseUrl }}admin/editProject/{{ project.getId() }}">Modifier <i class="far fa-edit"></i></a></td>
-                        <td><a class="text-danger text-nowrap" href="{{ baseUrl }}admin/deleteProject/{{ project.getId() }}">Modifier <i class="far fa-trash-alt"></i></a></td>
+                        <td><a class="delete-project text-danger text-nowrap" href="{{ baseUrl }}admin/deleteProject/{{ project.getId() }}">Supprimer <i class="far fa-trash-alt"></i></a></td>
                     </tr>
                 {% endfor %}
                 </tbody>
             </table>
         </div>
     </section>
+{% endblock %}
+
+{% block scripts %}
+    {{ parent() }}
+
+    <script src="{{ baseUrl }}assets/js/deleteProject.js"></script>
 {% endblock %}

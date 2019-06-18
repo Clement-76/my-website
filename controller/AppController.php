@@ -21,4 +21,17 @@ abstract class AppController {
 
         $this->twig = $twig;
     }
+
+    public function isAuthenticated() {
+        return isset($_SESSION['user']);
+    }
+
+    public function isAdmin() {
+        return $this->isAuthenticated() && $_SESSION['user']->getRole() == 1;
+    }
+
+    public function redirect404() {
+        header('HTTP/1.0 404 Not Found');
+        exit();
+    }
 }

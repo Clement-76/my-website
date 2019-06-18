@@ -2,7 +2,7 @@
   position: relative;
   left: -12px;
   display: inline-block;
-  padding: 10px 12px;
+  padding: 11px 12px;
   background: rgba(0, 0, 0, 0.15);
   border-radius: 3px 0 0 3px;
 }
@@ -10,6 +10,7 @@
 .btn-labeled {
   padding-top: 0;
   padding-bottom: 0;
+  border-width: 0;
 }
 
 /*# sourceMappingURL=admin.css.map */
