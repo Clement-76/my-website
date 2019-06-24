@@ -2,15 +2,20 @@
 
 namespace App\Controller;
 
+use App\Entity\Image;
 use App\Entity\Project;
 use App\Model\ProjectManager;
 use App\Services\JSON;
+use Exception;
+use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Error\SyntaxError;
 
 class ProjectsController extends AppController {
 
     /**
      * echo the projects in JSON
-     * @throws \Exception
+     * @throws Exception
      */
     public function getJSONProjects() {
         $projectManager = new ProjectManager();
@@ -31,9 +36,9 @@ class ProjectsController extends AppController {
 
     /**
      * @param $id
-     * @throws \Twig\Error\LoaderError
-     * @throws \Twig\Error\RuntimeError
-     * @throws \Twig\Error\SyntaxError
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
      */
     public function editProject($id) {
 
@@ -65,6 +70,20 @@ class ProjectsController extends AppController {
                 'description' => $_POST['description'],
             ];
 
+            if (isset($_FILES['image'])) {
+                // add a check of the values, if there are errors add it into $error
+                // use $image->isValid()
+
+                $image = new Image($_FILES['image']);
+                $uploadSuccess = $image->upload();
+
+                if ($uploadSuccess) {
+                    $newProjectData['imageName'] = $image->getUploadedName();
+                } else {
+                    $errors['upload'] = true;
+                }
+            }
+
             // test here if a new image was send
             // and push the imagePath in the data array if she was send
 
@@ -83,9 +102,9 @@ class ProjectsController extends AppController {
 
     /**
      * display the project form and if it was submit, check the values
-     * @throws \Twig\Error\LoaderError
-     * @throws \Twig\Error\RuntimeError
-     * @throws \Twig\Error\SyntaxError
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
      */
     public function addProject() {
 
@@ -98,11 +117,6 @@ class ProjectsController extends AppController {
 
         if (isset($_POST['title'], $_POST['repoLink'], $_POST['link'], $_POST['creationDate'], $_POST['description'])) {
 
-            // check the values
-            // create the image
-            // make the edit of the image optional (just the edit)
-            // -> if no image has been sent, don't change the value in the db
-
             $projectData = [
                 'title' => $_POST['title'],
                 'repoLink' => empty($_POST['repoLink']) ? null : $_POST['repoLink'],
@@ -111,8 +125,19 @@ class ProjectsController extends AppController {
                 'description' => $_POST['description'],
             ];
 
-            // test here if a new image was send
-            // and push the imagePath in the data array if she was send
+            if (isset($_FILES['image'])) {
+                // add a check of the values, if there are errors add it into $error
+                // use $image->isValid()
+
+                $image = new Image($_FILES['image']);
+                $uploadSuccess = $image->upload();
+
+                if ($uploadSuccess) {
+                    $projectData['imageName'] = $image->getUploadedName();
+                } else {
+                    $errors['upload'] = true;
+                }
+            }
 
             $project = new Project($projectData);
             $projectManager = new ProjectManager();
@@ -130,7 +155,7 @@ class ProjectsController extends AppController {
 
     /**
      * @param $id
-     * @throws \Exception
+     * @throws Exception
      */
     public function deleteProject($id) {
 

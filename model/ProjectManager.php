@@ -17,7 +17,7 @@ class ProjectManager extends Manager {
             'SELECT id,
                      title,
                      description,
-                     image_path AS imagePath,
+                     image_name AS imageName,
                      link,
                      repo_link AS repoLink,
                      creation_date AS creationDate
@@ -41,7 +41,7 @@ class ProjectManager extends Manager {
             'SELECT id,
                      title,
                      description,
-                     image_path AS imagePath,
+                     image_name AS imageName,
                      link,
                      repo_link AS repoLink,
                      creation_date AS creationDate
@@ -116,7 +116,7 @@ class ProjectManager extends Manager {
             'UPDATE my_website_projects
              SET title = :title,
              description = :description,
-             image_path = :imagePath,
+             image_name = :imageName,
              link = :link,
              repo_link = :repoLink,
              creation_date = :creationDate
@@ -126,7 +126,7 @@ class ProjectManager extends Manager {
         $q->bindValue(':id', $project->getId(), \PDO::PARAM_INT);
         $q->bindValue(':title', $project->getTitle(), \PDO::PARAM_STR);
         $q->bindValue(':description', $project->getDescription(), \PDO::PARAM_STR);
-        $q->bindValue(':imagePath', $project->getImagePath(), \PDO::PARAM_STR);
+        $q->bindValue(':imageName', $project->getImageName(), \PDO::PARAM_STR);
         $q->bindValue(':link', $project->getLink(), \PDO::PARAM_STR);
         $q->bindValue(':repoLink', $project->getRepoLink(), \PDO::PARAM_STR);
         $q->bindValue(':creationDate', $project->getCreationDate(), \PDO::PARAM_STR);
@@ -143,13 +143,13 @@ class ProjectManager extends Manager {
     public function createProject(Project $project) {
         $db = $this->getDb();
         $q = $db->prepare(
-            'INSERT INTO my_website_projects(title, description, image_path, link, repo_link, creation_date)
-             VALUES(:title, :description, :imagePath, :link, :repoLink, :creationDate)'
+            'INSERT INTO my_website_projects(title, description, image_name, link, repo_link, creation_date)
+             VALUES(:title, :description, :imageName, :link, :repoLink, :creationDate)'
         );
 
         $q->bindValue(':title', $project->getTitle(), \PDO::PARAM_STR);
         $q->bindValue(':description', $project->getDescription(), \PDO::PARAM_STR);
-        $q->bindValue(':imagePath', $project->getImagePath(), \PDO::PARAM_STR);
+        $q->bindValue(':imageName', $project->getImageName(), \PDO::PARAM_STR);
         $q->bindValue(':link', $project->getLink(), \PDO::PARAM_STR);
         $q->bindValue(':repoLink', $project->getRepoLink(), \PDO::PARAM_STR);
         $q->bindValue(':creationDate', $project->getCreationDate(), \PDO::PARAM_STR);

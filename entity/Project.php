@@ -7,7 +7,7 @@ class Project extends Entity implements \JsonSerializable {
     protected $id;
     protected $title;
     protected $description;
-    protected $imagePath = null;
+    protected $imageName = null;
     protected $link = null;
     protected $repoLink = null;
     protected $creationDate;
@@ -17,7 +17,7 @@ class Project extends Entity implements \JsonSerializable {
             'id' => $this->id,
             'title' => $this->title,
             'description' => $this->description,
-            'imagePath' => $this->imagePath,
+            'imageName' => $this->imageName,
             'link' => $this->link,
             'repoLink' => $this->repoLink,
             'creationDate' => $this->creationDate,
@@ -55,15 +55,15 @@ class Project extends Entity implements \JsonSerializable {
     /**
      * @return string|null
      */
-    public function getImagePath() {
-        return $this->imagePath;
+    public function getImageName() {
+        return $this->imageName;
     }
 
     /**
-     * @param string $imagePath
+     * @param string $imageName
      */
-    public function setImagePath(string $imagePath) {
-        $this->imagePath = $imagePath;
+    public function setImageName(string $imageName) {
+        $this->imageName = $imageName;
     }
 
     /**

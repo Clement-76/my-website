@@ -6,15 +6,15 @@ class Project {
     /**
      * @param projectsContainerId
      * @param description
-     * @param imagePath
+     * @param imageName
      * @param link
      * @param repoLink
      * @param title
      */
-    constructor(projectsContainerId, {description, imagePath, link, repoLink, title}) {
+    constructor(projectsContainerId, {description, imageName, link, repoLink, title}) {
         this.projectsContainer = $('#' + projectsContainerId);
         this.description = description;
-        this.fullImagePath = `${config.baseUrl}/${config.projectsPath}/${imagePath}`;
+        this.fullImagePath = `${config.baseUrl}/${config.projectsPath}/${imageName}`;
         this.link = link;
         this.repoLink = repoLink;
         this.title = title;

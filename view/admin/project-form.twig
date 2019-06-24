@@ -1,6 +1,10 @@
 {% if errors.mysql %}
     <div class="alert alert-danger" role="alert">
-        Une erreur inconnu est survenue
+        Une erreur inconnue est survenue
+    </div>
+{% elseif errors.upload %}
+    <div class="alert alert-danger" role="alert">
+        Une erreur inconnue s'est produite lors de l'upload
     </div>
 {% endif %}
 
@@ -23,9 +27,13 @@
         <label for="project-creation-date">Date de création du projet :</label>
         <input class="form-control" type="date" name="creationDate" id="project-creation-date" required value="{{ project.getCreationDate() }}">
     </div>
-    <div class="form-group">
-        <label for="project-image">Image du projet :</label>
-        <input class="form-control-file" type="file" name="image" id="project-image">
+{#    <div class="form-group">#}
+{#        <label for="project-image"></label>#}
+{#        <input class="form-control-file" type="file" name="image" id="project-image">#}
+{#    </div>#}
+    <div class="mb-3 custom-file">
+        <input type="file" name="image" class="custom-file-input" id="project-image">
+        <label class="custom-file-label" for="project-image">Sélectionnez une image pour le projet</label>
     </div>
     <div class="form-group">
         <label for="project-description">Description du projet :</label>
